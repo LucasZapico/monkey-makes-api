@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": " npm run build && npm run start:build",
+    "start": "npm run start:build",
     "start:dev": "nodemon --exec babel-node index.js",
     "start:build": "node ./build/index.js",
     "clean": "rm -rf build",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "heroku-prebuild": "npm install --dev"
+    "heroku-prebuild": "npm install --dev && npm run build"
   },
   "keywords": [
     "node",
