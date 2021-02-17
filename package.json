@@ -10,7 +10,8 @@
     "start:build": "node ./build/index.js",
     "clean": "rm -rf build",
     "dev": "webpack --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "heroku-prebuild": "npm install --dev"
   },
   "keywords": [
     "node",
