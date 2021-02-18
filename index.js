@@ -79,7 +79,7 @@ app.get("/sync/products", async (req, res, next) => {
 
 app.get("/sync/products/:id", async (req, res, next) => {
   const data = await axios
-    .get(`https://api.printful.com/sync/products${req.params.id}`, {
+    .get(`https://api.printful.com/sync/products/${req.params.id}`, {
       headers: axiosDefaultHeader     
     })
     .then((result) => {
