@@ -77,6 +77,23 @@ app.get("/sync/products", async (req, res, next) => {
     res.status(200).json(data)  
 });
 
+app.get("/sync/products/:id", async (req, res, next) => {
+  const data = await axios
+    .get(`https://api.printful.com/sync/products${req.params.id}`, {
+      headers: axiosDefaultHeader     
+    })
+    .then((result) => {
+      return result.data;
+    })
+    .catch((err) => {
+      console.log(err);
+      return err
+    });
+
+    res.status(200).json(data)  
+});
+
+
 
 
 
@@ -86,4 +103,9 @@ app.listen(PORT, () => {
 
 app.use((req, res) => {
   res.status(404);
+  // respond with json
+  if (req.accepts('json')) {
+    res.send({ error: 'Not found' });
+    return;
+  }
 });
